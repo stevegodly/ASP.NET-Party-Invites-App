@@ -1,0 +1,19 @@
+﻿
+@model PartyInvites.Models.GuestResponse
+@{
+    ViewData["Title"] = "Thanks";
+}
+<body>
+    <p>
+        <h1>ThankYou, @Model.Name</h1>
+        @if (Model.WillAttend == true)
+        {
+            @:Its Great to know that your coming.
+        }
+        else{
+            @:Sorry,Its sad to know that you would not be coming...
+        }
+        <label class="control-label">Her is the list of people who would be coming</label>
+        <a  asp-controller="Home"  asp-action="List">List</a>
+    </p>
+</body>

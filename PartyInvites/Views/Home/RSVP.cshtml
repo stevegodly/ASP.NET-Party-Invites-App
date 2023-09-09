@@ -1,0 +1,45 @@
+﻿@model PartyInvites.Models.GuestResponse
+
+<h4>GuestResponse</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="RSVP" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone" class="control-label"></label>
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WillAttend" class="form-label mt-4">Will You Attend</label>
+                <select asp-for="WillAttend" class="form-select">
+                   <option value="">choose an option</option>
+                   <option value="true">Yes, I will come</option>
+                   <option value="false">No, I cant come</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back To Home</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
